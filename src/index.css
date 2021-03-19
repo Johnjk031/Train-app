@@ -1,13 +1,223 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+@font-face {
+  src: url(./Gotham-Bold.otf);
+  font-family: gotham;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin-top: 100px;
+  background-color: #E5E5E5;
+  display: flex;
+  justify-content: center;
+}
+
+.frame {
+  width: 341px;
+  height: 520px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: 60px;
+  grid-gap: auto;
+  background-color: #ffffff;
+}
+.grid-heading {
+  grid-column: 1/7;
+  grid-row: 1/2;
+  background-color: #CECECE;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 28px;
+  font-weight: 700px;
+  line-height: 30,94px;
+  font-family: gotham;
+}
+.grid-destinations {
+  grid-column: 1/7;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+}
+.sthlm {
+  background-color: #E2E2E2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+}
+.gbg {
+  background-color: #ECECEC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 50px;
+}
+.destination-text {
+  font-family: gotham;
+  font-size: 16px;
+  font-weight: 700px;
+}
+.depart {
+  position: relative;
+  top: 0.8rem;
+  right: 6.6rem;
+  font-size: 8px;
+  opacity: 0.6;
+  font-family: 'PT Sans', sans-serif;
+
+}
+.arival {
+  position: relative;
+  top: 0.8rem;
+  right: 5.9rem;
+  font-size: 8px;
+  opacity: 0.6;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.arrow-img {
+  width: 30px;
+  height: 7px;
+  position: relative;
+  bottom: 13.7rem;
+  left: 9.7rem;
+}
+
+.train-class {
+  grid-column: 1/7;
+  grid-row: 3/4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 1.2rem;  
+}
+.second-class-article {
+  margin-left: 0.9rem;
+}
+.first-class-article {
+margin-right: 6.3rem;
+}
+
+.label-text {
+  font-size: 12px;
+  position: relative;
+  bottom: 2px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.select-forms {
+  grid-column: 1/7;
+  grid-row: 4/5;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 0; 
+}
+.ticket-amount {
+  width: 142px;
+}
+.title {
+  width: 142px;
+}
+
+.select {
+  padding: 8px 12px;
+  width: 142px;
+  border-radius: 4px;
+  border-width: 1px;
+}
+.select-ticket-text {
+  font-size: 12px;
+  position: relative;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  right: 2.1rem;
+  bottom: 3px;
+  font-family: 'PT Sans', sans-serif;
+}
+.select-title-text {
+  font-size: 12px;
+  position: relative;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  right: 3.6rem;
+  bottom: 3px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+.input-forms {
+  grid-column: 1/7;
+  grid-row: 5/6;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+}
+.lastname {
+  margin-top: 1rem;
+}
+
+.firstname-input, .lastname-input {
+  Width: 308px;
+  height: 30px;
+  border-width: 1px;
+  border-radius: 4px;
+}
+.first-name-text {
+  margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 12px;
+    position: relative;
+    right: 8.3rem;
+    bottom: 3px;
+    font-family: 'PT Sans', sans-serif;
+}
+.last-name-text {
+  margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 12px;
+    position: relative;
+    right: 8.2rem;
+    bottom: 3px;
+    font-family: 'PT Sans', sans-serif;
+}
+.checkbox {
+  grid-column: 1/7;
+  grid-row: 7/8;
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start; 
+}
+.allow-terms-checkbox {
+  margin-left: 1rem;
+}
+.allow-terms-text {
+  font-size: 12px;
+  position: relative;
+  top: 1.7px;
+  font-family: 'PT Sans', sans-serif;
+}
+.submit-button-section {
+  grid-column: 1/7;
+  grid-row: 8/9;
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.submit-button {
+  width: 308px;
+  height: 56px;
+  border-radius: 4px;
+  color: white;
+  font-size: 18px;
+  font-family: 'PT Sans', sans-serif;
+  font-weight: 700px;
+  background-color: black;
 }

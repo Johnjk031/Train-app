@@ -1,25 +1,45 @@
-import logo from './logo.svg';
 import './App.css';
+import React, { Component } from "react";
+import Terms from './components/allowTerms';
+import Destinations from './components/Destinations';
+import Header from './components/header';
+import NameInput from './components/Nameinput';
+import Select from './components/Selects';
+import Trainclass from './components/Trainclass';
 
-function App() {
+
+class App extends Component {
+  render() {
+
+let logShit = (e) => {
+e.preventDefault()
+  this.refs.train.logStuff()
+  this.refs.select.logStuff()
+  this.refs.name.logStuff()
+  this.refs.allow.logStuff()
+}
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <section className="frame">
+      <Header />
+      <Destinations />
+      <img src={"http://cdn.onlinewebfonts.com/svg/img_423359.png"} className="arrow-img" alt="arrow-img" />
+      <Trainclass ref="train"/>
+      <Select ref="select"/>
+      <NameInput ref="name"/>
+    <Terms ref="allow"/>
+
+
+    <section className="submit-button-section">
+     <form>
+      <button type="submit" className="submit-button" onClick={logShit}>Boka biljetter</button>
+      </form>
+    </section>
+
+    </section>
     </div>
   );
 }
-
+}
 export default App;

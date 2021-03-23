@@ -1,5 +1,5 @@
 import './App.css';
-import React, { Component } from "react";
+import React, { useRef, useState } from "react";
 import Terms from './components/allowTerms';
 import Destinations from './components/Destinations';
 import Header from './components/header';
@@ -8,16 +8,39 @@ import Select from './components/Selects';
 import Trainclass from './components/Trainclass';
 
 
-class App extends Component {
-  render() {
+let App = () => {
+
 
 let logShit = (e) => {
 e.preventDefault()
-  this.refs.train.logStuff()
-  this.refs.select.logStuff()
-  this.refs.name.logStuff()
-  this.refs.allow.logStuff()
+  console.log('test')
+  if (checked === false || nameRef.current.getFirstName() === '<p> </p>'){
+    console.log('fyll i')
+  }
+  else {
+  trainClassRef.current.getTrainClass()
+  selectRef.current.getAlert()
+  console.log(nameRef.current.getFirstName())
+  console.log(nameRef.current.getLastName())
 }
+}
+
+
+const trainClassRef = useRef();
+const selectRef = useRef();
+const nameRef = useRef();
+
+
+
+const [checked, setAllow] = useState(false)
+
+ let onchange = (data) => {
+   setAllow(data)
+ }
+console.log(checked)
+
+
+
 
   return (
     <div className="App">
@@ -25,10 +48,10 @@ e.preventDefault()
       <Header />
       <Destinations />
       <img src={"http://cdn.onlinewebfonts.com/svg/img_423359.png"} className="arrow-img" alt="arrow-img" />
-      <Trainclass ref="train"/>
-      <Select ref="select"/>
-      <NameInput ref="name"/>
-    <Terms ref="allow"/>
+      <Trainclass ref={trainClassRef} />
+      <Select ref={selectRef}/>
+      <NameInput ref={nameRef} />
+    <Terms data={checked} onchange={(e) => { onchange(e)}} />
 
 
     <section className="submit-button-section">
@@ -38,8 +61,9 @@ e.preventDefault()
     </section>
 
     </section>
+
     </div>
   );
 }
-}
+
 export default App;

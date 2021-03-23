@@ -1,25 +1,26 @@
-import React, { Component } from "react";
+import React, {  } from "react";
 
-class Terms extends Component {
+
+const Terms = (props) => {
  
- state = {
+ /*state = {
    doesAllow : false
  };
 
- changeAllow = e => {
-   this.setState({doesAllow : e.target.checked})
- }
+ const [doesAllow, setAllow] = useState(false)
 
- logStuff = () => {
-  console.log(`Does the person allow the terms? ${this.state.doesAllow}`)
-}
+ let changeAllow = e => {
+   setAllow(e.target.checked)
+ }
+*/
  
-  render() {
-    const {doesAllow} = this.state;
+const changeAllow = event => {
+  props.onchange(event.target.checked)
+}
     return <section className="checkbox">
-      <input type="checkbox" className="allow-terms-checkbox" checked={doesAllow} onChange={this.changeAllow} />
+      <input type="checkbox" className="allow-terms-checkbox" checked={props.data} onChange={changeAllow} />
       <label className="allow-terms-text">Godkänner vilkoren</label>
     </section>
-  }
+
 }
 export default Terms;

@@ -1,39 +1,55 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
+const { forwardRef, useImperativeHandle } = React;
 
-class NameInput extends Component {
+
+const NameInput = forwardRef((props, ref) => {
   
 
-  state = {
+  /*state = {
     firstName : "",
     lastName : ""
   }
-    
-  changeFirstName = e => {
-    this.setState({firstName : e.target.value});
+  */  
+
+ const [firstName, setFirstName] = useState("")
+ const [lastName, setLastName] = useState("")
+
+  let changeFirstName = e => {
+    setFirstName(e.target.value);
   }
 
-  changeLastName = e => {
-    this.setState({lastName : e.target.value});
+ let changeLastName = e => {
+  setLastName(e.target.value);
   }
+  
+  useImperativeHandle(ref, () => ({
 
-  logStuff = () => {
-    console.log(`${this.state.firstName}`)
-    console.log(`${this.state.lastName}`)
-  }
-  render() {
+    getFirstName: () => {
+     return(`${firstName}`)
+    },
+    getLastName: () => {
+      return(`<p>${lastName}</p>`)
+     }
+
+
+  }));
+  
+ 
+
+
+
     return <section className="input-forms">
 
       <article className="firstname">
         <p className="first-name-text">Förnamn</p>
-        <input type="text" className="firstname-input" value={this.state.firstName} onChange={this.changeFirstName}/>
+        <input type="text" className="firstname-input" value={firstName} onChange={changeFirstName}/>
       </article>
 
       <article className="lastname">
         <p className="last-name-text">Efternamn</p>
-        <input type="text" className="lastname-input" value={this.state.lastName} onChange={this.changeLastName} />
+        <input type="text" className="lastname-input" value={lastName} onChange={changeLastName} />
       </article>
 
     </section>
-  }
-}
+})
 export default NameInput;

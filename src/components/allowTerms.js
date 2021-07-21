@@ -3,17 +3,7 @@ import React, {  } from "react";
 
 const Terms = (props) => {
  
- /*state = {
-   doesAllow : false
- };
-
- const [doesAllow, setAllow] = useState(false)
-
- let changeAllow = e => {
-   setAllow(e.target.checked)
- }
-*/
- 
+// change checkbox value depending on user 
 const changeAllow = event => {
   props.onchange(event.target.checked)
 }

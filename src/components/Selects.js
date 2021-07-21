@@ -1,36 +1,60 @@
 import React, { useState } from "react";
 const { forwardRef, useImperativeHandle } = React;
 
+
 const Select = forwardRef((props, ref) => {
 
   
-  // state = {
-  // numberValue : "1",
-  // titleValue : "Ms"
-  //   };
-  
+  // use state to set initial value  
   const [numberValue, setNumberValue] = useState("1")
   const [titleValue, setTitleValue] = useState("Ms")
 
-
+ // change amount of tickets
   let changeNumber = (e) =>{
     setNumberValue(e.target.value);
   }
 
+  // change title value
   let changeTitle = (e) =>{
     setTitleValue(e.target.value);
   }
 
+  // use ref to callback data from child component
   useImperativeHandle(ref, () => ({
 
-    getAlert() {
-      if (numberValue <= 1) {
-      console.log(`${numberValue} ticket for you ${titleValue}`)
+    // amount of tickets
+    getAlert: () => {
+     
+      return(`${numberValue} `)
+      
+    },
+
+    // title value
+    getTitle: () => {
+      if (titleValue !== "")
+      {
+        return(`${titleValue}. `)
       }
       else {
-        console.log(`${numberValue} tickets for you ${titleValue}`)
+        return(`${titleValue}`)
       }
-    }
+      
+    },
+
+   // correcting grammar
+    getGrammar: () => {
+      if (numberValue <= 1) {
+      return(` biljett till:`)
+      }
+      else {
+        return(` biljetter till:`)
+      }
+    },
+
+
+
+
+
 
   }));
 
@@ -57,7 +81,7 @@ const Select = forwardRef((props, ref) => {
         <select className="select"  value={titleValue} onChange={changeTitle}>
           <option value="Ms">Ms</option>
           <option value="Mr">Mr</option>
-          <option value="Annat">Annat</option>
+          <option value="">Annat</option>
         </select>
       </article>
 
